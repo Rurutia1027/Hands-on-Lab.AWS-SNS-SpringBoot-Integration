@@ -38,4 +38,4 @@ jobs:
 
       # 4. Build the project
       - name: Compile with Maven
-        run: mvn clean compile -B
+        run: cd aws-sns-spring-boot-starter && mvn clean compile -B

@@ -8,6 +8,57 @@ We focus on:
 - Configuring a Spring Boot application to send and receive SNS messages using a starter module via Spring Auto-Configure and annotation. 
 - Verifying the end-to-end messaging flow without extra infrastructure like Cloud Thread. 
 
+## Project Structure 
+```
+aws-sns-spring-boot-starter-lab/
+├── README.md
+│
+├── terraform/                      # Terraform infra for AWS SNS
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── provider.tf
+│
+├── aws-sns-spring-boot-starter/
+│   ├── base/   # Base utils: common config, properties binding
+│   │   └── src/
+│   │
+│   ├── core/   # Core SNS integration: auto-config, beans
+│   │   └── src/
+│   │
+│   ├── starter/        # Final starter module (combines base + core)
+│   │   └── src/
+│   │
+│   ├── example-app-sender/                 # Example: publish messages to SNS
+│   │   └── src/
+│   │
+│   ├── example-app-receiver/               # Example: consume messages from SNS
+│   │   └── src/
+│   │
+│   └── pom.xml                             # Parent POM for starter + examples
+│
+└── scripts/
+    ├── deploy.sh
+    └── cleanup.sh
+```
+
+### How it works
+
+**aws-sns-spring-boot-starter-base**
+- Holds shared configuration like `@ConfigurationProperties`, constant keys, helper classes. 
+
+**aws-sns-spring-boot-starter-core**
+- Provides the main SNS auto-configuration, wiring AWS SDK clients (SNSClient), and conditional beans. 
+
+**aws-sns-spring-boot-starter**
+- A meta-module (depends on base + core) that exposes the starter as a single dependency. This is what the end user adds in their `pom.xml`. 
+
+**example-app-sender/example-app-receiver**
+- Simple Spring Boot apps to demostrate usage of the starter:
+> Sender publishes messages. 
+> Receier subscribes to the topic and consumes messages. 
+
+
 ## Architecture
 ### AWS Infrastructure (Provisioned via Terraform)
 - SNS Topic: Central hub for publishing messages. 

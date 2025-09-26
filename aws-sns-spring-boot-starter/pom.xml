@@ -15,6 +15,7 @@
         <module>core</module>
         <module>starter</module>
         <module>sender-example</module>
+        <module>subscriber-example</module>
     </modules>
 
     <properties>

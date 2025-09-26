@@ -9,9 +9,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>aws-sns-spring-boot-starter-sender-example</artifactId>
+    <artifactId>aws-sns-spring-boot-starter-subscriber-example</artifactId>
     <packaging>jar</packaging>
-    <name>AWS SNS Sender Example</name>
+    <name>AWS SNS Subscriber Example</name>
 
     <dependencies>
         <!-- Our SNS Starter -->
@@ -21,7 +21,7 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- Spring Boot Web -->
+        <!-- Spring Boot Starter Web (for REST endpoints) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -34,14 +34,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Spring Boot Maven Plugin -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>

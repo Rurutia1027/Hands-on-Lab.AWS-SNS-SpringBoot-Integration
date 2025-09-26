@@ -14,7 +14,7 @@ public class SnsPublishController {
     private final SNSProperties snsProperties;
 
     @PostMapping("/publish")
-    public String publish(@RequestParam String message) {
+    public String publish(@RequestParam("message") String message) {
         return snsClientService.publish(snsProperties.getTopicArn(), message);
     }
 }

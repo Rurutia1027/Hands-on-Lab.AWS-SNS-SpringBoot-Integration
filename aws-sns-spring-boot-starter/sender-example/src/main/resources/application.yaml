@@ -1,0 +1,7 @@
+aws:
+  sns:
+    enable: true
+    accessKey: ${secret.AWS_ACCESS_KEY}
+    secretKey: ${secret.AWS_SECRET_KEY}
+    region: ${secret.AWS_REGION}
+    topicArn: arn:aws:snss:us-east-1:123456789012:my-topic

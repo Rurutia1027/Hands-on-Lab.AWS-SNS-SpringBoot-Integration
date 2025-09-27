@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.aston.handson</groupId>
-        <artifactId>aws-sns-spring-boot-starter</artifactId>
+        <artifactId>aws-sns-spring-boot-starter-root</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>aws-sns-spring-boot-starter-base</artifactId>
     <packaging>jar</packaging>
     <name>AWS SNS Starter Base</name>
+
     <dependencies>
         <!-- Spring Boot starter -->
         <dependency>
